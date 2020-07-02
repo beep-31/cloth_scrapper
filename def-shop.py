@@ -27,7 +27,7 @@ if len(sys.argv) > 1:
             print(img)
             item = {
                 'title': title,
-                'price': final_price[-1],
+                'price': float(final_price[-1].replace(',','.')),
                 'img': img[-1]
             }
             results.append(item)
