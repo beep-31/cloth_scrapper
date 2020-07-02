@@ -16,7 +16,8 @@ if len(sys.argv) > 1:
     if request.status_code == 200:
         soup = bs4.BeautifulSoup(request.content, 'html5lib')
         results = []
-        for i in soup.find_all('div', class_ = 'product-info'):
+        for i in soup.find_all('article', class_=''):
+            link = i.find('a')['href']
             price = i.find('div', class_='product-price').text
             if price:
                 final_price = price.split('£ ')
@@ -28,7 +29,8 @@ if len(sys.argv) > 1:
             item = {
                 'title': title,
                 'price': float(final_price[-1].replace(',','.')),
-                'img': img[-1]
+                'img': img[-1],
+                'link':link
             }
             results.append(item)
 
