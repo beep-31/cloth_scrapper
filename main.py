@@ -32,6 +32,4 @@ if len(sys.argv) > 1:
     res_asos = requests.get(link_asos, headers = headers)
     res_def = requests.get(link_def, headers = headers)
     res_end = requests.get(link_end, headers = headers)
-    print(res_asos.status_code)
-    print(res_def.status_code)
-    print(res_end.status_code)
+    
