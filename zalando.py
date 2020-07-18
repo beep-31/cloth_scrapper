@@ -23,12 +23,12 @@ if len(sys.argv) > 1:
             link = LINK + a 
             img = div.find('img', class_='cat_image-1byrW')['src']
             title = div.find('div', class_='cat_articleName--arFp cat_ellipsis-MujnT').text
-            try:
+
+            if div.find('div', class_='cat_promotionalPrice-3GRE7'):
                 price = div.find('div', class_='cat_promotionalPrice-3GRE7').text
-            except AttributeError:
-                pass
-            if not price:
+            else:
                 price = div.find('div', class_='cat_originalPrice-2Oy4G').text
+
             price = price.split('\xa0')[0].replace(',','.')
             item = {
                 'title': title,

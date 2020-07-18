@@ -16,7 +16,7 @@ class Product:
         return repr((self.title, self.price))
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36 OPR/68.0.3618.165'
-ASOS_LINK = 'https://www.asos.com/search/?q='
+ASOS_LINK = 'https://www.asos.com/es/search/?q='
 
 if len(sys.argv) > 1:
     for i in range(1, len(sys.argv)-1):
@@ -41,10 +41,10 @@ if len(sys.argv) > 1:
                 # img = anchor.find('img')
             paragraphs = soup.find_all('p', class_='_1ldzWib')
             if paragraphs:
-                if a.find('span', class_='_3VjzNxC'):
-                    price = a.find('span', class_='_3VjzNxC').text
+                if a.find('span', class_='_16nzq18'):
+                    price = a.find('span', class_='_16nzq18').text
                 else:
-                    price = a.find('span', class_='Dy5fJQR').text
+                    price = a.find('span', class_='_3VjzNxC').text
             item = Product(final_title, price, link, img)
             results.append(item)
         
